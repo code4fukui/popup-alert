@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+
+<h1>popup-alert demo</h1>
+
+<button id=btn>ポップアップ！</button>
+<br><br>
+<button id=btn2>await ポップアップ！</button>
+
+<script type="module">
+import { PopupAlert } from "./popup-alert.js";
+
+btn.onclick = () => PopupAlert.show("やほー！");
+
+btn2.onclick = async () => {
+  await PopupAlert.show("await やほー！");
+  alert("ネイティブアラート after PopupAlert")
+};
+
+</script>
+
+<style>
+@import "popup-alert.css";
+</style>
+
+<footer style="margin-top: 2em;"><a href=https://github.com/code4fukui/popup-alert/>Code for FUKUI src on GitHub</a></footer>
+
+</body>
+</html>
