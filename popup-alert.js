@@ -12,6 +12,7 @@ class PopupAlert extends HTMLElement {
     const close = () => {
       this.parentElement.removeChild(this);
       callback();
+      window.removeEventListener("keydown", listener);
     };
     btn.onclick = () => close();
     this.onclick = (e) => {
@@ -19,6 +20,23 @@ class PopupAlert extends HTMLElement {
         close();
       }
     }
+    const listener = (e) => {
+      if (e.key == "Enter" || e.key == "Escape") {
+        close();
+      }
+      e.preventDefault();
+    };
+    window.addEventListener("keydown", listener);
+    /*
+    console.log("f");
+    this.focus();
+    this.onkeydown = (e) => {
+      console.log(key);
+      e.preventDefault();
+      const key = e.key;
+      console.log(key);
+    }
+    */
   }
   static show(s) {
     return new Promise((resolve) => {
