@@ -8,6 +8,7 @@ class PopupAlert extends HTMLElement {
     const c = create("div", this, "base");
     create("div", c, "message").textContent = txt;
     const btn = create("button", c, "button");
+    btn.className = "focus";
     btn.textContent = "OK";
     const close = () => {
       this.parentElement.removeChild(this);
